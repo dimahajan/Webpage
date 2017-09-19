@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+    <head>
+	<link rel="stylesheet" href="static/css/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	   body{
+	     background-image:url("/static/backgorundImg/backgImg.jpg");	
+	     background-repeat:no-repeat;
+	     background-size:cover;
+	   } 
+	   .page-header{
+	     background-image:url("/static/backgorundImg/back.jpg");	
+	     background-repeat:no-repeat;
+	     background-size:cover;
+	     margin:0;
+           }
+	   .file {
+	  	visibility: hidden;
+	  	position: absolute;
+	   }
+	  img{
+	   width:auto;
+	   height:auto;
+	   max-width:300px;
+	   max-height:300px;
+	  }
+	  #c1{
+  		display:flex;
+		flex-wrap:wrap;
+		flex-direction:row;
+		justify-content:space-around;
+		align-items:center;
+		align-content:center;
+		margin:1%;
+	 }
+	 #c2{
+                display:flex;
+                flex-wrap:nowrap;
+                flex-direction:column;
+                justify-content:center;
+                align-content:center;
+                margin:1%;
+         }
+	 #c3,#c4,#c6,#c0{
+                display:flex;
+                flex-wrap:wrap;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+                align-content:center;
+                margin:1%;
+         }
+	.panel{
+		background-color: red;
+		border-color: red;
+	 }
+	
+        @keyframes progress {
+ 	     from {
+   		 width:0%;
+	     }
+	} 
+	</style>
+	<script>
+		var load = function(event){
+			var reader = new FileReader();
+			reader.onload = function()
+ 			{
+  			      document.getElementById('output_image').src = reader.result;
+			      document.getElementById('fname').innerHTML = document.getElementById('file').value.split('\\')[2].split('.')[0];
+			      document.getElementById('hname').innerHTML="";
+			      document.getElementById('pbar').innerHTML="";
+			      document.getElementById('d2').style.display = 'none';
+		              document.getElementById('d1').style.display = 'block';
+ 			}
+ 			reader.readAsDataURL(event.target.files[0]);
+
+			document.getElementById('form').submit();
+		};
+	</script>
+    </head>
+    <body>
+      <form id="form" method="POST" enctype="multipart/form-data">
+	<div class="page-header" style="margin:0">
+ 		<div class="flex-container" id="c5" style="margin:0">
+			<div class="flex-item"> 
+    				<h1 style="color:red">Smart Match</h1>    
+			</div>
+		</div>  
+  	</div>
+	<div class="flex-container" id="c2">
+		  <div class="flex-item"> 
+			<div class="flex-container" id="c1">
+				<div class="flex-item">
+					<div class="panel panel-default">
+				  		<div class="flex-container" id="c0">
+						     <div class="flex-item">
+    							<input id="file" name="file" type="file" name="img[]" class="file" onchange="load(event)" >
+							<img id="output_image" class="img-rounded" src="{{imgpath}}" alt="{{fname}}">
+						     </div>
+						     <div class="flex-item" style="margin-top:10%">
+							<h5 id="fname" style="color: white;">{{fname}}</h5>
+						     </div>
+				    		</div>
+				  	</div>
+				</div>
+				<div class="flex-item" >
+					<h3> <strong><i class="glyphicon glyphicon-circle-arrow-right" ></i> </strong> </h3>
+				</div>
+				<div class="flex-item">
+				    <div class="panel panel-default">
+				  	<div class="flex-container" id="c0">
+						<div class="flex-item">
+							<div id="d2">
+								<img id="op" class="img-rounded" src="{{ res }}" alt="{{hname}}">
+							</div>
+							<div id="d1" style="display:none">
+								<i class="fa fa-spinner fa-spin" style="font-size:300px"></i>
+							</div>
+						</div>
+						<div class="flex-item" >
+							<h5 id="hname" style="color: white;">{{hname}}</h5>
+						</div>
+					</div>
+				        <div id="pbar" class="row" style="margin-top:3%">
+						<div class="col-md-10 col-md-offset-1">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="{{per}}" aria-valuemin="0" aria-valuemax="100" style="width:{{per}}%; background-color: green; ; animation: progress 1.5s ease-in-out forwards;">
+										{{per}}%
+								</div>
+							</div>
+						</div>
+					</div>
+			          </div>
+		            </div>
+	          </div>
+	          <div class="flex-item" style="margin-top:3%">
+			<div class="file-conatiner" id="c6">
+				<div class="flex-item">
+					<div id="bg" class="form-group">
+    						<input id="file" name="file" type="file" name="img[]" class="file" onchange="load(event)" >
+    				       		<div class="input-group" onclick="getElementById('file').click()">
+      							<span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+      							<button type="button" class="btn input-lg" style="color:#818383;text-align:left;200px;background:#f1f4f4;width:200px">Upload Image</button>
+							<span class="input-group-btn">
+        							<button class="browse btn btn-danger input-lg" type="button"><i class="glyphicon glyphicon-search" ></i> Try Another</button>
+      							</span>
+    						</div>
+  					</div>
+				</div>
+			</div>
+	       </div>
+	       <div class="flex-item">
+		   <div class="row">
+		     <div class="col-md-8 col-md-offset-2">
+                        <p style="color:blue">
+                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis semper dolor. Nunc purus nisi, elementum id. Distinxit  media praeter vultus pro ligavit: persidaque flamma addidit innabilis dissaepser. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+		     </div>
+		   <div>
+               </div>
+	</div>
+       </form>
+     </body>
+</html>

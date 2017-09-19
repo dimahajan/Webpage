@@ -1,0 +1,91 @@
+/* body{
+             background-image:url("/static/backgorundImg/backgImg.jpg");        
+             background-repeat:no-repeat;
+             background-size:cover;
+           } 
+           .page-header{
+             background-image:url("/static/backgorundImg/back.jpg");    
+             background-repeat:no-repeat;
+             background-size:cover;
+             margin:0;
+           }*/
+
+         .navbar {
+                font-family: Montserrat, sans-serif;
+                margin-bottom: 0; 
+                background-color: #2d2d30;
+                border: 0; 
+                font-size: 11px !important;
+                letter-spacing: 4px;
+                opacity: 0.9;
+        }
+        .navbar li a, .navbar .navbar-brand { 
+                color: #d5d5d5 !important;
+        }
+        .navbar-nav li a:hover {
+                color: #fff !important;
+        }
+        .navbar-nav li.active a {
+                color: #fff !important;
+                background-color: #29292c !important;
+        }
+        .navbar-default .navbar-toggle {
+                border-color: transparent;
+        }
+
+          .file {
+                visibility: hidden;
+                position: absolute;
+           }
+          #t1{
+            display:none;
+          }
+          video{
+            display:none;
+          }
+          img{
+           width:auto;
+           height:auto;
+           max-width:300px;
+           max-height:300px;
+          }
+          #c1{
+                display:flex;
+                flex-wrap:wrap;
+                flex-direction:row;
+                justify-content:space-around;
+                align-items:center;
+                align-content:center;
+                margin:1%;
+         }
+         #c2,#c5{
+                display:flex;
+                flex-wrap:nowrap;
+                flex-direction:column;
+                justify-content:center;
+                align-content:center;
+                margin:1%;
+         }
+         #c3,#c4,#c6,#c0{
+                display:flex;
+                flex-wrap:wrap;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+                align-content:center;
+                margin:1%;
+         }
+        .panel{
+                border-width:5px;
+                border-color: red;
+                background-color: #cf0a11;
+                width:320px;
+                height:400px;
+         }
+        @keyframes progress {
+             from {
+                 width:0%;
+             }
+        }
+
+

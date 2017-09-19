@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title> HTML 5 </title>
+
+	<style>
+		.holder_default {
+    width:500px; 
+    height:180px; 
+    border: 10px dashed #ccc;
+}
+
+#holder.hover { 
+    width:400px; 
+    height:180px; 
+    border: 10px dashed #0c0 !important; 
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+	</style>
+
+<script>   
+    var holder = document.getElementById('holder');
+    holder.ondragover = function () { this.className = 'hover'; return false; };
+    holder.ondrop = function (e) {
+      this.className = 'hidden';
+      e.preventDefault();
+      var file = e.dataTransfer.files[0];
+      var reader = new FileReader();
+      reader.onload = function (event) {
+          document.getElementById('image_droped').className='visible'
+	  document.getElementById('image_droped').src=event.target.result;
+      }
+      reader.readAsDataURL(file);
+    };
+</script> 
+</head>
+    <body>
+      <form method="post" action="http://example.com/">
+        <div id="holder" style="" id="holder" class="holder_default">
+          <img src="" id="image_droped" width="500" height="180" style="width:500px; height:180px; border: 10px dashed #7A97FC;" class=" hidden"/>
+        </div>
+      </form>
+    </body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+    <head>
+	<link rel="stylesheet" href="static/js/bootstrap/css/bootstrap.min.css">
+	<style>
+	   body{
+	     background-image:url("/static/backgorundImg/backgImg.jpg");	
+ 	     background-repeat:no-repeat;
+    	     background-size:cover;
+  	   }
+	    .page-header{
+                background-image:url("/static/backgorundImg/back.jpg");
+                background-repeat:no-repeat;
+	        margin:0;
+    	   }
+ 
+	   .file {
+		visibility: hidden;
+		position: absolute;
+   }
+</style>
+</head>
+<body>
+<form id="form" method="POST" enctype="multipart/form-data">
+ <div class="page-header">
+          <div class="container">
+            <div class="row">
+                <h1 style="text-align:center;color:red">Smart Match</h1>
+            </div>
+         </div>
+ </div>
+
+<div class="container" >
+		<div class="row">
+		    <div class="col-md-4" style="margin-top:20%">
+			<div id="bg" class="form-group">
+				<input id="file" name="file" type="file" name="img[]" class="file" onchange="getElementById('form').submit()">
+				<div class="input-group" >
+					<span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+					<input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+					<span class="input-group-btn">
+						<button class="browse btn btn-primary input-lg" type="button" onclick="getElementById('file').click()"><i class="glyphicon glyphicon-search" ></i>Upload Image</button>
+					</span>
+				</div>
+			</div>
+		    </div>
+		    <div class="col-md-1" style="margin-left:3%">
+			<div class="vertical_line" style="height:500px;width:2px;background:#000"></div>	
+		    </div>
+		    <div class="col-md-5">
+			<div class="container">
+			<div class="row">
+				<div class="col-md-6 ">	
+					<p style="color:blue">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis semper dolor. Nunc purus nisi, elementum id. Distinxit  media praeter vultus pro ligavit: persidaque flamma addidit innabilis dissaepser. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					</p>
+				</div>
+			</div>
+			<div class="row" style="margin-top:1%">
+				<div class="col-md-3" style="margin-top:3%">
+					<div class="container">
+						<div class="row">
+							<img  class="img-rounded" src="{{imgpath}}" alt="Lights" width="200" height="220">	
+						</div>
+						<div class="row">
+							<div class="col-md-2" style="margin-left:1%">
+							       <h4><span id="l1" class="label label-info">{{fname}}</span></h4>	
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1" style="margin-top:10%">
+					<h4> <strong><i class="glyphicon glyphicon-circle-arrow-right" ></i> </strong> </h4>
+				</div>
+				<div class="col-md-3">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3" style="margin-left:3%" >
+								<h4><span id="l1" class="label label-info">{{hname}}</span></h4>
+							</div>
+						</div>
+						<div class="row">
+							<img class="img-rounded" src="{{url_for('static', filename = res) }}" alt="{{hname}}" width="200" height="220">
+						</div>
+						<div class="row">
+						<div class="col-md-2" style="margin-top:1%">
+                                                  <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{per}}" aria-valuemin="0" aria-valuemax="100" style="width:{{per}}%">
+                                                          {{per}}%
+                                                        </div>
+                                                  </div>
+                                                </div>
+	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	     </div>
+	   </div>
+	 </div>
+	</form>
+     </body>
+</html>

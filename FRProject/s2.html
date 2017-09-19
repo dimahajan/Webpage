@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+    <head>
+	<link rel="stylesheet" href="static/js/bootstrap/css/bootstrap.min.css">
+	<style>
+	   body{
+	     background-image:url("/static/backgorundImg/backgImg.jpg");	
+	     background-repeat:no-repeat;
+	     background-size:cover;
+	   } 
+	   .page-header{
+	     background-image:url("/static/backgorundImg/back.jpg");	
+	     background-repeat:no-repeat;
+	     background-size:cover;
+	     margin:0;
+           }
+	   .file {
+	  	visibility: hidden;
+	  	position: absolute;
+	   }
+	  img{
+	   width:auto;
+	   height:auto;
+	   max-width:300px;
+	   max-height:300px;
+	  }
+	  #c1{
+  		display:flex;
+		flex-wrap:wrap;
+		flex-direction:row;
+		justify-content:space-around;
+		align-items:center;
+		align-content:center;
+		margin:1%;
+	 }
+	 #c2{
+                display:flex;
+                flex-wrap:nowrap;
+                flex-direction:column;
+                justify-content:center;
+                align-content:center;
+                margin:1%;
+         }
+	 #c3,#c4,#c5,#c6{
+                display:flex;
+                flex-wrap:wrap;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+                align-content:center;
+                margin:1%;
+         }
+        @keyframes progress {
+ 	     from {
+   		 width:0%;
+	     }
+	} 
+	</style>
+	<script src="static/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <form id="form" method="POST" enctype="multipart/form-data">
+	<div class="page-header" style="margin:0">
+ 		<div class="flex-container" id="c5" style="margin:0">
+			<div class="flex-item"> 
+    				<h1 style="color:red">Smart Match</h1>    
+			</div>
+		</div>  
+  	</div>
+	<div class="flex-container" id="c2">
+		<div class="flex-item"> 
+			<div class="flex-container" id="c1">
+				<div class="flex-item">
+					<div class="flex-container" id="c3" style="margin-top:10%">
+						<div class="flex-item">
+							<img class="img-rounded" src="{{imgpath}}" alt="{{fname}}">
+						</div>
+						<div class="flex-item">
+								<h4><span id="l1" class="label label-info">{{fname}}</span></h4>
+						</div>
+					</div>
+				</div>
+				<div class="flex-item" >
+					<h3> <strong><i class="glyphicon glyphicon-circle-arrow-right" ></i> </strong> </h3>
+				</div>
+				<div class="flex-item">
+					<div class="flex-container" id="c4">
+						<div class="flex-item">
+							<h4><span id="l1" class="label label-info">{{hname}}</span> </h4>
+						</div>
+						<div class="flex-item">
+							<img class="img-rounded" src="{{url_for('static', filename = res) }}" alt="{{hname}}">
+						</div>
+					 </div>
+				         <div class="row" style="margin-top:3%">
+						<div class="col-md-10 col-md-offset-1">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="{{per}}" aria-valuemin="0" aria-valuemax="100" style="width:{{per}}% ; animation: progress 1.5s ease-in-out forwards;">
+									{{per}}%
+								</div>
+							</div>
+						</div>
+					 </div>
+			       </div>
+		    </div>
+	     </div>
+	     <div class="flex-item" style="margin-top:3%">
+			<div class="file-conatiner" id="c6">
+				<div class="flex-item">
+					<div id="bg" class="form-group">
+    						<input id="file" name="file" type="file" name="img[]" class="file" onchange="getElementById('form').submit()">
+    				       		<div class="input-group">
+      							<span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+    	  						<input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+      							<span class="input-group-btn">
+        							<button class="browse btn btn-primary input-lg" type="button" onclick="getElementById('file').click()"><i class="glyphicon glyphicon-search" ></i> Try Another</button>
+      							</span>
+    						</div>
+  					</div>
+				</div>
+			</div>
+	   </div>
+	</div>
+       </form>
+     </body>
+</html>
